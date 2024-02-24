@@ -1,6 +1,34 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@/styles.scss"
+import localFont from 'next/font/local';
+
+const pretandard = localFont({
+  src: [
+    {
+      path: "../../public/fonts/static/Pretendard-Bold.otf",
+      weight: "700"
+    },
+    {
+      path: "../../public/fonts/static/Pretendard-Black.otf",
+      weight: "500"
+    },
+    {
+      path: "../../public/fonts/static/Pretendard-Light.otf",
+      weight: "200"
+    },
+    {
+      path: "../../public/fonts/static/Pretendard-ExtraLight.otf",
+      weight: "100"
+    },
+    {
+      path: "../../public/fonts/static/Pretendard-ExtraBold.otf",
+      weight: "900"
+    },
+  ],
+  variable: "--Pretendard"
+})
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`
+      font-sans ${pretandard.variable}
+    `}>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

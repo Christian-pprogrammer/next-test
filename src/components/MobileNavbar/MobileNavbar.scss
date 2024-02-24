@@ -1,0 +1,24 @@
+.mobile-navbar {
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  position: relative;
+  max-width: 420px;
+  min-width: 360px;
+
+  margin: 0px auto;
+  height: 55px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .mobile-navbar {
+    display: none;
+  }
+}

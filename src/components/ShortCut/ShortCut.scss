@@ -1,0 +1,21 @@
+.short-cut {
+  display: flex;
+  max-width: 960px;
+  justify-content: space-between;
+  padding: 16px 0px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 960px) {
+  .short-cut {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    max-width: 420px;
+    margin: auto;
+    grid-row-gap: 24px;
+    grid-column-gap: 12px;
+    padding: 16px 20px;
+    
+  }
+}

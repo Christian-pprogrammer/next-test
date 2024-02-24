@@ -1,95 +1,59 @@
+import CollectionsSlider from "@/components/CollectionsSlider/CollectionsSlider";
+import MobileBottomNavbar from "@/components/MobileBottomNavbar/MobileBottomNavbar";
+import MobileNavbar from "@/components/MobileNavbar/MobileNavbar";
+import Navbar from "@/components/Navbar/Navbar";
+import ShortCut from "@/components/ShortCut/ShortCut";
+import Slider from "@/components/Slider/Slider";
+import { fetchCollections, fetchMainBannerData, fetchMainShortcutData } from "@/services/api";
+import { chunkArray } from "@/services/utils";
 import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+  
+  const bannerData = await fetchMainBannerData();
+  const shortCutData = await fetchMainShortcutData();
+  const {filteredCollections, otherCollections} = await fetchCollections();
+
+  let chunks = chunkArray(otherCollections, 7);
+
+  
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+    <Navbar />
+    <MobileNavbar />
+    <Slider bannerData={bannerData} />
+    <ShortCut shortCutData={shortCutData} />
+    <CollectionsSlider 
+      title="HOT DEAL"
+      semiTitle="HOT DEAL"
+      collections={chunks[0]}
+    />
+    <CollectionsSlider 
+      title="저렴한 가격과 보장된 성능, 더함 TV"
+      semiTitle="사은품 증정이벤트"
+      collections={chunks[1]}
+    />
+    <CollectionsSlider 
+      title="판매량 TOP7 가성비 인기가전 모음"
+      semiTitle="가격,성능,디자인까지"
+      collections={chunks[2]}
+    />
+    <div style={{
+      maxWidth: '420px',
+      margin: 'auto'
+    }}>
+      <MobileBottomNavbar />
+    </div>
+    
+    {/* <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} />
+    <CollectionsSlider collections={otherCollections} /> */}
+    </>
   );
 }
