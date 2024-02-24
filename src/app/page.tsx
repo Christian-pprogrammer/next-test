@@ -38,6 +38,27 @@ export default async function Home() {
       semiTitle="가격,성능,디자인까지"
       collections={chunks[2]}
     />
+    <CollectionsSlider 
+      title="성능보장, PC주변기기 & 스피커 추천"
+      semiTitle="#LG #앱코 #BOSE"
+      collections={chunks[3]}
+    />
+    <CollectionsSlider 
+      title="품절임박! 마지막 수량 한정특가 상품"
+      semiTitle="고민하면 품절!"
+      collections={chunks[4]}
+    />
+    <CollectionsSlider 
+      title="게임기기 최저가 & 신작 모음"
+      semiTitle="#한정수량 특가 #기대신작"
+      collections={chunks[5]}
+    />
+    <CollectionsSlider 
+      title="New In"
+      semiTitle="#주목할만한신상품"
+      collections={chunks[6]}
+    />
+    
     <div style={{
       maxWidth: '420px',
       margin: 'auto'

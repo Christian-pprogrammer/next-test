@@ -5,14 +5,6 @@ const nextConfig = {
     domains: [
       'testvalley.kr',
       'dvd6ljcj7w3pj.cloudfront.net'
-    ],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '',
-        port: '',
-        pathname: '/**',
-      }
     ]
   }
 };
