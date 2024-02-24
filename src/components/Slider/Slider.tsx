@@ -29,13 +29,14 @@ const Slider = ({bannerData}: SliderProps) => {
       centeredSlides={true}
       spaceBetween={35}
       loop={true}
+      speed={1000}
       // navigation={true}
       pagination={{
         clickable: true,
       }}
       modules={[Pagination, Navigation, Autoplay]}
       autoplay={{
-        delay: 2400,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       className="mySwiper"
