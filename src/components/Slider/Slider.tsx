@@ -7,7 +7,7 @@ import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { useMediaQuery } from 'react-responsive'
 
 
@@ -29,13 +29,15 @@ const Slider = ({bannerData}: SliderProps) => {
       centeredSlides={true}
       spaceBetween={35}
       loop={true}
-      autoplay={true}
       // navigation={true}
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination, Navigation]}
-
+      modules={[Pagination, Navigation, Autoplay]}
+      autoplay={{
+        delay: 2400,
+        disableOnInteraction: false,
+      }}
       className="mySwiper"
       style={{
         //@ts-ignore

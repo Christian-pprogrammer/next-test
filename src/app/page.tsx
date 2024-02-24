@@ -28,49 +28,49 @@ export default async function Home() {
       semiTitle="HOT DEAL"
       collections={chunks[0]}
       reverse={true}
-      delay={2500}
+      delay={5000}
     />
     <CollectionsSlider 
       title="저렴한 가격과 보장된 성능, 더함 TV"
       semiTitle="사은품 증정이벤트"
       collections={chunks[1]}
       reverse={false}
-      delay={5000}
+      delay={10000}
     />
     <CollectionsSlider 
       title="판매량 TOP7 가성비 인기가전 모음"
       semiTitle="가격,성능,디자인까지"
       collections={chunks[2]}
       reverse={true}
-      delay={4000}
+      delay={2500}
     />
     <CollectionsSlider 
       title="성능보장, PC주변기기 & 스피커 추천"
       semiTitle="#LG #앱코 #BOSE"
       collections={chunks[3]}
       reverse={false}
-      delay={3500}
+      delay={5000}
     />
     <CollectionsSlider 
       title="품절임박! 마지막 수량 한정특가 상품"
       semiTitle="고민하면 품절!"
       collections={chunks[4]}
       reverse={true}
-      delay={5000}
+      delay={10000}
     />
     <CollectionsSlider 
       title="게임기기 최저가 & 신작 모음"
       semiTitle="#한정수량 특가 #기대신작"
       collections={chunks[5]}
       reverse={false}
-      delay={5000}
+      delay={2500}
     />
     <CollectionsSlider 
       title="New In"
       semiTitle="#주목할만한신상품"
       collections={chunks[6]}
       reverse={true}
-      delay={10000}
+      delay={5000}
     />
     
     <div style={{
