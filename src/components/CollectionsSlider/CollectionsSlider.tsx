@@ -4,16 +4,18 @@ import { CollectionType } from '@/interfaces/interfaces'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CollectionElement from '../CollectionElement/CollectionElement'
-import { Navigation } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import { useMediaQuery } from 'react-responsive';
 
 type Props = {
   title: string,
   semiTitle: string,
-  collections: Array<CollectionType>
+  collections: Array<CollectionType>,
+  reverse: boolean,
+  delay: number
 }
 
-const CollectionsSlider = ({collections, title, semiTitle}: Props) => {
+const CollectionsSlider = ({collections, title, semiTitle, reverse, delay}: Props) => {
 
   const isMobile = useMediaQuery({maxWidth: 960})
 
@@ -54,11 +56,16 @@ const CollectionsSlider = ({collections, title, semiTitle}: Props) => {
               pagination={{
                 clickable: true,
               }}
-              modules={[Navigation]}
+              modules={[Navigation, Autoplay]}
               className="mySwiper"
               navigation={{
                 prevEl: ".swiper-button-prev",
                 nextEl: ".swiper-button-next",
+              }}
+              autoplay={{
+                delay: delay,
+                disableOnInteraction: false,
+                reverseDirection: reverse
               }}
             >
               {

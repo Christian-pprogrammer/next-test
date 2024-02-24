@@ -1,11 +1,16 @@
 .slider {
-  max-width: 960px;
+  max-width: 100%;
   margin: auto;
 }
 .slider-item {
-  width: 960px;
+  width: 100%;
 }
-
+.pc-slider {
+  display: block;
+}
+.mobile-slider {
+  display: none;
+}
 @media screen and (max-width: 960px) {
   .slider {
     max-width: 420px;
@@ -15,4 +20,12 @@
     width: 420px;
 
   }
+
+  .mobile-slider {
+    display: block;
+  }
+  .pc-slider {
+    display: none;
+  }
+
 }

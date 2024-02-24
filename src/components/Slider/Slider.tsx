@@ -22,16 +22,20 @@ const Slider = ({bannerData}: SliderProps) => {
   const swiper = useSwiper();
   
   return (
-    <div className='slider'>
+    <>
+    <div className='slider pc-slider'>
       <Swiper
-      slidesPerView={1}
-      spaceBetween={30}
+      slidesPerView={1.50}
+      centeredSlides={true}
+      spaceBetween={35}
       loop={true}
       autoplay={true}
+      // navigation={true}
       pagination={{
         clickable: true,
       }}
       modules={[Pagination, Navigation]}
+
       className="mySwiper"
       style={{
         //@ts-ignore
@@ -42,7 +46,6 @@ const Slider = ({bannerData}: SliderProps) => {
       {
         bannerData.map((element: BannerItem, index: number)=>(
           <SwiperSlide>
-
             <Image 
               src={isMobile ? element.mobileImageUrl : element.pcImageUrl}
               alt='' 
@@ -53,6 +56,34 @@ const Slider = ({bannerData}: SliderProps) => {
       }
       </Swiper>
     </div>
+
+    <div className='slider mobile-slider'>
+      <Swiper
+      slidesPerView={1}
+      loop={true}
+      autoplay={true}
+      // navigation={true}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination]}
+
+      className="myMobileSwiper"
+    >
+      {
+        bannerData.map((element: BannerItem, index: number)=>(
+          <SwiperSlide>
+            <Image 
+              src={isMobile ? element.mobileImageUrl : element.pcImageUrl}
+              alt='' 
+              width={420} 
+              height={200} />
+          </SwiperSlide>
+        ))
+      }
+      </Swiper>
+    </div>
+    </>
   )
 }
 
